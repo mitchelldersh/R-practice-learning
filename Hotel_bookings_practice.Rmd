@@ -11,7 +11,7 @@ output: html_document
 hotel_bookings <- read.csv("hotel_bookings.csv")
 ```
 
-## Plotting relationship between lead_time = x and children = y. Hypothesis being that people with children book in advance. 
+## Plotting relationship between lead_time = x and children = y. Hypothesis being that people with children book in advance. This does not seem to be correlated. 
 
 
 
@@ -20,7 +20,7 @@ ggplot(data = hotel_bookings) +
   geom_point(mapping = aes(x = lead_time, y = children))
 ```
 
-## Weekend bookings data - find out which guests book most often on weekends in order to target that demographic for a new marketing campaign. It is suggested that guests without children book the most weekend nights. Is this true?
+## Weekend bookings data - find out which guests book most often on weekends in order to target that demographic for a new marketing campaign. It is suggested that guests without children book the most weekend nights. This seems to be correlated.
 
 ```{r creating scatter plot}
 ggplot(data = hotel_bookings) +
