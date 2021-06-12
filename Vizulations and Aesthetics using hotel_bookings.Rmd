@@ -69,7 +69,7 @@ onlineta_city_hotels <- filter(hotel_bookings,
                              hotel_bookings$market_segment=="Online TA"))
 ```
 
-## Create Scatterplot using new filtered data frame
+## Step 6:Create Geom Bar plot using new filtered data frame
 
 Based on your previous filter, this scatterplot shows data for online bookings for city hotels. The plot reveals that bookings with children tend to have a shorter lead time, and bookings with 3 children have a significantly shorter lead time (<200 days). So, promotions targeting families can be made closer to the valid booking dates.  
 
@@ -78,4 +78,16 @@ ggplot(data = onlineta_city_hotels) +
   geom_point(mapping = aes(x = lead_time, y = children))
 ```
 
+## Step 7: Create Geom Bar plot: Comparison of market segments by hotel type for bookings
+
+```{r creating a geom plot}
+ggplot(data = hotel_bookings) +
+  geom_bar(mapping = aes(x = market_segment)) +
+  facet_wrap(~hotel) +
+  labs(title="Comparison of market segments by hotel type for hotel bookings",
+       caption=paste0("Data from: ", mindate, " to ", maxdate),
+       x="Market Segment",
+       y="Number of Bookings") +
+  theme(axis.text.x = element_text(angle = 45))
+```
 
